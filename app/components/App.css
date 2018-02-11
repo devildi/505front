@@ -1,0 +1,100 @@
+html,body{
+	padding: 0;
+	margin: 0;
+}
+.cardBGC{
+	background-color: #f0f0f0;
+}
+.card{
+	margin-top: 2px;
+}
+.FAB{
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+}
+.login{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.link{
+	text-decoration: none;
+}
+.Loginbtn{
+	width: 256px;
+	margin-top: 10px;
+}
+.person{
+  display: flex;  
+  align-items: center;  
+  justify-content: space-between; 
+}
+.person1{
+	width: 500px;
+	margin: 0 auto;
+}
+.Loginbtn1{
+	color: #CFCFCF;
+	font-size: 15px;
+	margin-top: 8px;
+	cursor: pointer;
+}
+.img{
+	height: 180px;
+	width: 180px;
+}
+.ListBar{
+	position: absolute;
+	top: 5px;
+	right: 200px;
+}
+.detail{
+	display: flex;
+	flex-direction: column;
+	padding-right: 70px;
+	padding-left: 70px;
+}
+.footer{
+	text-align: center;
+	font-size: 15px;
+	color: #CFCFCF;
+	position: absolute;
+	left: 0;
+	bottom: 5px;
+	width: 100%;
+}
+.footerp{
+	text-align: center;
+	font-size: 15px;
+	color: #CFCFCF;
+	margin-bottom: 10px;
+}
+.SuperContainer{
+	position: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.BarchartContainer{
+	position: relative;
+}
+.SuperTitle1{
+	margin-top: 10px;
+	text-align: center;
+}
+.container{
+	display: flex;
+	flex-direction: row;
+}
+.btnContainer{
+	padding: 0 10px 0 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.menulist{
+	display: flex;
+	flex-direction: column;
+}
