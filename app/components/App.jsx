@@ -1,5 +1,6 @@
 import injectTapEventPlugin from 'react-tap-event-plugin'
 injectTapEventPlugin()
+import FontIcon from 'material-ui/FontIcon'
 import React from 'react'
 import { HashRouter as Router, Route, Link} from 'react-router-dom'
 import axios from 'axios'
@@ -39,7 +40,8 @@ import {Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow,
 // const socket = io('http://localhost:1234',{
 //   "transports":['websocket', 'polling']
 // })
-var socket = new WebSocket('ws://localhost:3000')
+const socket = new WebSocket('ws://localhost:8090')
+//const socket = new WebSocket('ws://echo.websocket.org/')
 if(socket.readyState === 3){
 	history.go(0) 
 }
@@ -573,7 +575,7 @@ class UserTableList extends React.Component {
 		if(this.mounted){
 			this.setState({loading: true})
 		}
-		axios.get('http://localhost:8080/api/user/list',{
+		axios.get('/api/user/list',{
 			params: {
 	      id: that.props.match.params.id,
 	      page:page
@@ -673,7 +675,6 @@ class UserTableList extends React.Component {
         	<RaisedButton label="上一页" disabled={cache.previous} primary={true} onTouchTap={this.	_previous.bind(this)}/>
         	<RaisedButton label="下一页" disabled={cache.next} primary={true} onTouchTap={this._next.bind(this)}/>
         </div>
-        <Footer/>
 			</div>
 		)
 	}
@@ -968,7 +969,7 @@ class OrderTableList extends React.Component {
 		if(this.mounted){
 			this.setState({loading: true})
 		}
-		axios.get('http://localhost:8080/api/orderlist',{
+		axios.get('/api/orderlist',{
 			params: {
 	      id: that.props.match.params.id,
 	      page:page
@@ -1078,8 +1079,12 @@ class Super extends React.Component {
 	  this.state = {};
 	}
 
+	componentDidMount(){
+		//console.log(getScrollHeight() , getClientHeight())
+	}
+
 	render(){
-       // {getScrollHeight() > getClientHeight() ? <Footer/> : <FooterP/> }
+    // {getScrollHeight() > getClientHeight() ? <Footer/> : <FooterP/> }
 		//console.log(getScrollHeight() , getClientHeight())
 		return(
 			<div className='SuperContainer'>
@@ -1087,7 +1092,6 @@ class Super extends React.Component {
     		<SimpleBarChart/>		
   	  	<div className='SuperTitle1'>本月工单部门占比</div>
     		<Barchart/>
-    		{getScrollHeight() > getClientHeight() ? <FooterP/> : <Footer/> }
 	  	</div>
 		)
 	}
@@ -1110,7 +1114,7 @@ class TopListBar extends React.Component {
 
 	componentDidMount(){
 		const that = this
-		console.log(socket.readyState)
+		//console.log(socket.readyState)
 		socket.addEventListener('message', function (event) {
 			console.log('Message from server ', event.data)
 			if(event.data){
@@ -1251,7 +1255,7 @@ export default class App extends React.Component {
 	    	:<div>
 	    		<AppBar 
 	    			title={<span style={{cursor: 'pointer'}}>LRTV运维中心</span>}
-	    			iconClassNameLeft='fhggfh'
+	    			iconClassNameLeft='muidocs-icon-action-home'
 	    			onTitleTouchTap={this.handleTouchTap.bind(this)}
 	    			iconElementRight={<Menu user={this.state.user} 
 	    			hasLogged={this.hasLogged.bind(this)}/>} 
